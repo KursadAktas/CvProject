@@ -1,0 +1,34 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Yeni Eğitim Ekleme Sayfası</h4>
+<br />
+<form class="form-group" method="post">
+
+    <input required class="form-control" type="text" asp-for="Name"  />
+    <br />
+    <input required class="form-control" type="text" asp-for="LastName"  />
+    <br />
+    <input required class="form-control" type="text" asp-for="Adress"  />
+    <br />
+    <input required class="form-control" type="text" asp-for="Phone"  />
+    <br />
+    <input required class="form-control" type="text" asp-for="Mail"  />
+    <br />
+    <input required class="form-control" type="text" asp-for="Description" />
+    <br />
+    <input required class="form-control" type="text" asp-for="Image" />
+    <br />
+
+    <br />
+
+    <button class="btn btn-info"> Kaydet </button>
+
+</form>
+
+
+

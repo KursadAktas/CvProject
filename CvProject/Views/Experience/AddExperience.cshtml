@@ -1,0 +1,26 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Yeni Deneyim Ekleme Sayfası</h4>
+<br />
+<form class="form-group" method="post">
+   
+    <input class="form-control"  type="text" asp-for="Title" placeholder="Başlığı Yazınız.. "/>
+    <br />
+    <input class="form-control"  type="text" asp-for="Subtitle" placeholder="Alt Başlık Yazınız.. "/>
+    <br />
+    <input class="form-control"  type="text" asp-for="Date" placeholder="Tarih Yazınız.. "/>
+    <br />
+
+    <textarea placeholder="Açıklama Giriniz" asp-for="Description" rows="5" class="form-control"></textarea>
+
+ 
+    <br />
+
+    <button class="btn btn-info"> Kaydet </button>
+
+</form>

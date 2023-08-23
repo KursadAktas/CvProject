@@ -1,0 +1,52 @@
+﻿@model List<Communication>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Mesaj Listesi</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>İsim</th>
+        <th>E Posta</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+      
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FullName</td>
+            <td>@item.Mail</td>
+            <td>@item.Subject</td>
+            <td>@item.Message</td>
+            <td>@item.Date</td>
+         
+            <td>
+                <a asp-route-id="@item.Id" asp-controller="Message" asp-action="Delete" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+

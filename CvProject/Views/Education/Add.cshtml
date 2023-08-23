@@ -1,0 +1,30 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Yeni Eğitim Ekleme Sayfası</h4>
+<br />
+<form class="form-group" method="post">
+
+    <input required class="form-control" type="text" asp-for="Title" placeholder="Okul Giriniz.. " />
+    <br />
+    <input required class="form-control" type="text" asp-for="Subtitle1" placeholder="Alt Başlık Giriniz.. " />
+    <br />
+    <input required class="form-control" type="text" asp-for="Subtitle2" placeholder="Alt Başlık 2 Giriniz.. " />
+    <br />
+    <input required class="form-control" type="text" asp-for="AverageNote" placeholder="Ortalama Not Giriniz.. " />
+    <br />
+    <input required class="form-control" type="text" asp-for="Date" placeholder="Tarih Giriniz.. " />
+    <br />
+
+
+    <br />
+
+    <button class="btn btn-info"> Kaydet </button>
+
+</form>
+
+

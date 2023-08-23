@@ -1,0 +1,111 @@
+﻿@model List<Talent>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    string renk = "";
+}
+
+@{
+    string labelRenk = "";
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Yetenek Listem</h5>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a asp-controller="Talent" asp-action="Add" class="btn btn-info"> Yeni Yetenek Ekle</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                      
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">ORan</th>
+                                            <th>Güncelle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            
+                                        @if (item.Ratio >= 0 && item.Ratio <=50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                labelRenk = "badge bg-danger";
+                                            }
+                                            if (item.Ratio >=51 && item.Ratio <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                labelRenk = "badge bg-warning";
+                                            }
+                                            if (item.Ratio >= 71 && item.Ratio <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                labelRenk = "badge bg-primary";
+                                            }
+                                            if (item.Ratio >= 85 && item.Ratio <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                                labelRenk = "badge bg-success";
+                                            }
+
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Talent1 </td>
+                                          
+                                          
+                                          
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="@renk" style="width:@item.Ratio%"></div>
+                                                </div>
+                                            </td>
+                                                <td><span class="@labelRenk">@item.Ratio%</span></td>
+                                             
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" asp-controller="Talent" asp-action="Update" asp-route-id="@item.Id">
+                                                        <i class="fas fa-pencil-alt">
+                                                        </i>
+                                                        Güncelle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a asp-route-id="@item.Id" asp-controller="Talent" asp-action="Delete" class="btn btn-danger btn-sm" >
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                        </tr>
+                                        }
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

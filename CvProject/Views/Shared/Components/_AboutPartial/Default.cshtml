@@ -1,0 +1,23 @@
+﻿@model List<About>
+
+
+
+@foreach (var item in Model)
+{
+
+
+    <section class="resume-section" id="about">
+        <div class="resume-section-content">
+            <h1 class="mb-0">
+                @item.Name
+                <span class="text-primary">@item.LastName</span>
+            </h1>
+            <div class="subheading mb-5">
+                @item.Adress · @item.Phone ·
+                <a href="@item.Mail">@item.Mail</a>
+            </div>
+            <p class="lead mb-5">@item.Description</p>
+            @await Component.InvokeAsync("_SocialMediaPartial")
+        </div>
+    </section>
+}

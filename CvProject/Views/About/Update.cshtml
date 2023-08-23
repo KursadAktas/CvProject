@@ -1,0 +1,54 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hakkımda Düzenleme Sayfası</h2>
+<br />
+
+<form method="post">
+   
+        <label>Ad</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <label>Soyad</label>
+        <input type="text" asp-for="LastName" class="form-control" />
+        <br />
+        <label>Adres</label>
+        <input type="text" asp-for="Adress" class="form-control" />
+        <br />
+        <label>Telefon</label>
+        <input type="text" asp-for="Phone" class="form-control" />
+        <br />
+        <label>Mail Adresi</label>
+        <input type="text" asp-for="Mail" class="form-control" />
+        <br />
+        <label>Resim</label>
+        <input type="text" asp-for="Image" class="form-control" />
+        <br />
+        <br />
+        <label>Açıklama</label>
+        <textarea rows="5" type="text" asp-for="Description" class="form-control"></textarea>
+        <br />
+
+        <button type="submit" class="btn btn-success">Güncelle</button>
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>

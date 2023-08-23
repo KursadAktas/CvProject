@@ -1,0 +1,21 @@
+﻿@model Hobby
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Hobi Güncelleme Sayfası</h4>
+<br />
+<form class="form-group" method="post">
+
+    <input required class="form-control" type="text" asp-for="Description1" placeholder="Hobi Giriniz.. " />
+    <br />
+
+    <input required class="form-control" type="text" asp-for="Description2" placeholder="Hobi Giriniz.. " />
+    <br />
+
+    <button class="btn btn-info"> Kaydet </button>
+
+</form>
+

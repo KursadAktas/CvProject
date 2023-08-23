@@ -1,0 +1,56 @@
+﻿@model List<Education>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Eğitim Listesi</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Alt Başlık 2</th>
+        <th>GNO</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle1</td>
+            <td>@item.Subtitle2</td>
+            <td>@item.AverageNote</td>
+            <td>@item.Date</td>
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="Education" asp-action="Update" asp-route-id="@item.Id">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+            <td>
+                <a asp-route-id="@item.Id" asp-controller="Education" asp-action="Delete" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<a asp-controller="Education" asp-action="Add" class="btn btn-primary">Yeni Eğitim Ekle</a>
+
+
+
+

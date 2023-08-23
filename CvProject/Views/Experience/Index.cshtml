@@ -1,0 +1,38 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Deneyim Listesi</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {    
+    
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Title</td>
+        <td>@item.Subtitle</td>
+        <td>@item.Date</td>
+            <td><a asp-action="DeleteExperience" asp-controller="Experience" asp-route-id="@item.Id" class="btn btn-danger">Sil</a></td>
+        <td><a asp-controller="Experience" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success">Düzenle</a></td>
+
+    </tr>
+    }
+
+</table>
+
+<a asp-controller="Experience" asp-action="AddExperience" class="btn btn-primary">Yeni Deneyim Ekle</a>
+

@@ -1,0 +1,86 @@
+﻿@using CvProject.Entity;
+@model List<SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Sosyal Medya Listesi</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Adı</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+          
+            <td>
+                <a class="btn btn-info btn-sm" asp-controller="SocialMedia" asp-action="Update" asp-route-id="@item.Id">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+            <td>
+                <a asp-route-id="@item.Id" asp-controller="SocialMedia" asp-action="Delete" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<button data-toggle="modal" data-target="#modal1" asp-controller="" asp-action="" class="btn btn-info">Yeni Sosyal Medya Hesabı Ekle</button>
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"> Sosyal Medya Hesabı Ekleme Paneli</h2>
+
+
+            </div>
+            <form method="post" asp-controller="SocialMedia" asp-action="Add">
+                <div class="modal-body">
+                    <label>Sosyal Medya İsmi</label>
+                    <input type="text" name="Name" class="form-control"/>
+                    <br />
+                    <label>Sosyal Medya Linki</label>
+                    <input type="text" name="Link" class="form-control" />
+                    <br />
+                    <label>İkon</label>
+                    <input type="text" name="Icon" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+
+
+                </div>
+
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
